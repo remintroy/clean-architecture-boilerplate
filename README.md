@@ -1,4 +1,4 @@
-# clean-architecture-boilerplate
+# Clean architecture boilerplate
 Boilerplate code for starting clean architecture back-end
 
 #### Contains 👉🏻👈🏻
