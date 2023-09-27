@@ -2,10 +2,14 @@
 Boilerplate code for starting clean architecture back-end
 
 #### Contains 👉🏻👈🏻
+* ⚡ Typescript
+* ⚡ Eslint
+* ⚡ Prettier
 * ⚡ Express with http module as server ✨
 * ⚡ Mongodb connection ✨
+* ⚡ Globally accessible utils `utils` and configs `config` ✨
 * ⚡ Demo UsersRepository 
-* ⚡ Demo Hello wold use-case
+* ⚡ Demo Hello world use-case
 
 #### How to use it?
 ```SHELL
