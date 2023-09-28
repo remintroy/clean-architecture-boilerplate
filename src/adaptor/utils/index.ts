@@ -7,15 +7,15 @@ export default class Utils {
   /**
    * This methord is used to create error objects wich http status codes and status messages
    * @param status Http status code for error
-   * @param error Error message
-   * @param optionalData Additional data for more actions
+   * @param message Error message
+   * @param data Additional data for more actions
    * @returns Objects with error details
    */
-  createError(status?: number, error?: string, optionalData?: object | null) {
+  createError(status?: number, message?: string, data?: object | null) {
     return {
-      error: error ? error : "Oops thats an error",
+      message: message ? message : "Oops thats an error",
       status: Number(status) || 500,
-      ...optionalData,
+      data,
     };
   }
 

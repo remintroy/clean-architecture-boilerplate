@@ -1,11 +1,24 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 function getConfig() {
-  return {
+  const configs: Configs = {
     server: {
       name: process.env.SERVER_NAME || "Server",
       id: process.env.SERVER_ID || "1",
-      port: process.env.PORT || 3000,
+      port: Number(process.env.PORT) || 3000,
+      baseUrl: "/",
+    },
+    mongodb: {
+      url: process.env.MONGODB_URL || "mongodb://localhost:27017/test",
+      db: process.env.MONGODB_DB || "server",
+    },
+    cors: {
+      origin: ["*"],
     },
   };
+
+  return configs;
 }
 
 type getConfig = typeof getConfig;
