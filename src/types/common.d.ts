@@ -2,8 +2,8 @@
 type Prettify<T> = { [K in keyof T]: T[K] } & NonNullable<unknown>;
 
 // global veriables
-declare const utils: import("./adaptor/utils").default;
-declare const config: ReturnType<import("./config").default>;
+declare const utils: import("../adaptor/utils").default;
+declare const config: ReturnType<import("../config").default>;
 
 // Configs
 interface Configs {

@@ -1,4 +1,4 @@
-import { CustomRequest } from "../../types.dynamic";
+import { CustomRequest } from "../../types/common.dynamic";
 import createUser from "../../use-cases/create-user";
 import getUsers from "../../use-cases/get-users";
 import UserRepository from "../repository/userRepository";
