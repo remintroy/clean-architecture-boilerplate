@@ -31,11 +31,3 @@ declare namespace Express {
     };
   }
 }
-
-// other types
-interface UserInterface {
-  name: string;
-  email: string;
-  message: string;
-}
-type User = Prettify<UserInterface>;

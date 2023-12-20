@@ -2,8 +2,6 @@
  * This class provides common utility functions
  */
 export default class Utils {
-  private defaultErrorMessage: string = "Oops something went wrong";
-
   /**
    * This methord is used to create error objects wich http status codes and status messages
    * @param status Http status code for error
@@ -13,7 +11,7 @@ export default class Utils {
    */
   createError(status?: number, message?: string, data?: object | null) {
     return {
-      message: message ? message : "Oops thats an error",
+      message: message ? message : "Oops something went wrong",
       status: Number(status) || 500,
       data,
     };
@@ -27,7 +25,7 @@ export default class Utils {
    */
   throwCustomError(status: number, errorMessage?: string) {
     return (error: Error) => {
-      throw this.createError(status, errorMessage ?? error?.message ?? this.defaultErrorMessage, error);
+      throw this.createError(status, errorMessage ?? error?.message, error);
     };
   }
 
@@ -38,14 +36,14 @@ export default class Utils {
    */
   throwInternalError(errorMessage?: string) {
     return (error: Error) => {
-      throw this.createError(500, errorMessage ?? error?.message ?? this.defaultErrorMessage, error);
+      throw this.createError(500, errorMessage ?? error?.message, error);
     };
   }
 
   /**
    * This funtions handles and converts normal error to internal server error using throwInternalError.
    * First argumet is promise funcion and rest of arguments are passed to the promise function
-   * @param promiseFunction Promise funtctios to be handled
+   * @param promiseFunction Promise function to be handled
    * @param args Argumients for the promise function
    * @returns Result of promise function
    */
@@ -56,7 +54,7 @@ export default class Utils {
     try {
       return await promiseFunction(...args);
     } catch (error) {
-      return this.createError(500, error?.message ?? this.defaultErrorMessage, error);
+      throw this.createError(500, error?.message, error);
     }
   }
 

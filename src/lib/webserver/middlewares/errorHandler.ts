@@ -9,8 +9,8 @@ export default function errorHandlingMiddleware(err: ReturnType<typeof utils.cre
   const additionalData = err.data || null;
 
   // Log the error for debugging purposes
-  console.error(`Error ${status}: ${errorMessage}`);
+  if (status == 500) console.error(`Error ${status}: ${errorMessage}`);
 
   // Respond with the appropriate status code and error message
-  res.status(status).json({ ok: false, error: errorMessage, data: additionalData });
+  res.status(status).json({ status: status, message: errorMessage, data: additionalData });
 }
