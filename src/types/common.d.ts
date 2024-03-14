@@ -1,7 +1,7 @@
-// to show entier type structure
+// to show entire type structure
 type Prettify<T> = { [K in keyof T]: T[K] } & NonNullable<unknown>;
 
-// global veriables
+// global variables
 declare const utils: import("../adaptor/utils").default;
 declare const config: ReturnType<import("../config").default>;
 
@@ -17,10 +17,10 @@ interface Configs {
     url: string;
     db: string;
   };
-  cors: import("cors").CorsOptions; // types from cors libray
+  cors: import("cors").CorsOptions; // types from cors library
 }
 
-// For express request and respose with custom attributes
+// For express request and response with custom attributes
 declare namespace Express {
   interface Request {
     user: {

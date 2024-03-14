@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /**
- * Error handlier for not found 404
+ * Error handler for not found 404
  * @param req Express Request
  * @param res Express Response
  */
