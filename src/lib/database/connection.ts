@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export default function connectToMongodb() {
+export default function connectToDB() {
   const connectionUrl = config.mongodb.url;
 
   if (!connectionUrl) {
@@ -31,7 +31,7 @@ function onError(error: Error) {
 
 function onDisconnect() {
   console.error(`[${config.server.id ?? "server"}] MongoDB disconnected! Reconnecting in 10s`);
-  setTimeout(() => connectToMongodb(), 10000);
+  setTimeout(() => connectToDB(), 10000);
 }
 
 mongoose.connection.on("connected", onConnected);

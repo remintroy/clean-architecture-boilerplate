@@ -1,7 +1,7 @@
 import "./globals";
-import connectToDb from "./lib/database/connection";
+import connectToDB from "./lib/database/connection";
 import startWebServer from "./lib/webserver";
 
-connectToDb();
+connectToDB();
 
 startWebServer();

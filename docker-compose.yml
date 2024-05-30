@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  mongodb:
+    image: "mongo:latest"
+    networks:
+      - network_name
+    volumes:
+      - ./mongodb:/data/db
+    ports:
+      - "27018:27017"
+    restart: always
+
+  redis:
+    image: "redis:latest"
+    networks:
+      - network_name
+    ports:
+      - "6380:6379"
+    volumes:
+      - ./redisdb:/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: dockerfile.dev
+    ports:
+      - "3000:80"
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
+    networks:
+      - network_name
+    depends_on:
+      - redis
+      - mongodb
+    environment:
+      - NODE_ENV=DEV
+    restart: always
+
+networks:
+  network_name:
+    name: network_name
