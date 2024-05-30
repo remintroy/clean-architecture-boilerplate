@@ -1,4 +1,4 @@
-import { CustomRequest } from "../../types/common.dynamic";
+import { Request } from "express";
 import createUser from "../../use-cases/create-user";
 import getUsers from "../../use-cases/get-users";
 import UserRepository from "../repository/userRepository";
@@ -8,7 +8,7 @@ export default function UserController(userRepository: UserRepository) {
     return getUsers(userRepository);
   };
 
-  const setUsers = (req: CustomRequest) => {
+  const setUsers = (req: Request) => {
     const data = req.body;
     return createUser(userRepository, data);
   };

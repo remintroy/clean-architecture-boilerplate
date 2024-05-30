@@ -12,6 +12,8 @@ interface Configs {
     id: string;
     port: number;
     baseUrl: string;
+    isDevEnv: boolean;
+    nodeEnv: "PROD" | "DEV";
   };
   mongodb: {
     url: string;
